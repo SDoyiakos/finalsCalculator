@@ -15,12 +15,21 @@ public class Calculator {
 	 * @return The score needed on the final for the student to get the desired grade
 	 */
 	public static String calculateFinal(float currentGrade,float finalWeight,float desiredGrade) {
-		double currentGradeWeighted;
-		String answer;
+		float currentGradeWeighted;
+		float answer;
+		String output;
 		 currentGradeWeighted=currentGrade*(1-finalWeight);
-		 answer = String.valueOf((desiredGrade-currentGradeWeighted)/(finalWeight));
-		 answer = answer.substring(0,answer.indexOf(".")+3);
-		 return answer;
+
+		 answer = (desiredGrade-currentGradeWeighted)/(finalWeight);
+
+		 // used to see if we need to round up to the hundreths place
+		 if(answer%.001!=0) {
+			 answer=answer+(float).01;
+		 }
+		 output=Float.toString(answer);
+		 output=output.substring(0,output.indexOf(".")+3);
+		 return output;
 	}
+	
 
 }
