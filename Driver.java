@@ -1,5 +1,9 @@
 import java.util.Scanner;
-
+/**
+ * 
+ * @author Steven Doyiakos
+ *
+ */
 public class Driver {
 	Scanner input; // Used to interface between the user and the program
 	int userInput; // the input of the user represented as an int
@@ -36,15 +40,15 @@ public class Driver {
 	
 	public void calculatorPrompt() {
 
-		float grade;
-		float desiredGrade;
-		float finalWeight;
+		double grade;
+		double desiredGrade;
+		double finalWeight;
 		System.out.println("What is your current grade in %?");
-		grade=Float.valueOf(input.nextLine());
+		grade=Double.valueOf(input.nextLine());
 		System.out.println("What is your desired grade in %?");
-		desiredGrade=Float.valueOf(input.nextLine());
+		desiredGrade=Double.valueOf(input.nextLine());
 		System.out.println("How much is your final worth in %?");
-		finalWeight=(Float.valueOf(input.nextLine()))*(float)(0.01);
+		finalWeight=Double.valueOf(input.nextLine());
 		System.out.println("You need a " + Calculator.calculateFinal(grade, finalWeight, desiredGrade)+"% to get a "+ desiredGrade + "% in the class\n");
 		
 		
