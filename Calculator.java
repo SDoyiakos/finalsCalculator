@@ -23,13 +23,26 @@ public class Calculator {
 
 		 answer = (desiredGrade-currentGradeWeighted)/(finalWeight);
 
-		 // used to see if we need to round up to the hundreths place
-		 if(answer%.001!=0) {
-			 answer=answer+.01;
-		 }
+		
+		 answer=roundtoHundreths(answer); //Rounds our answer
+		 
+ 
 		 output=Double.toString(answer);
-		 output=output.substring(0,output.indexOf(".")+3);
+		 
+		 
 		 return output;
+	}
+	
+	/**
+	 * Rounds double to the nearest hundreths palce
+	 * @param number double to be rounded
+	 * @return number rounded to the hundreths place
+	 */
+	public static double roundtoHundreths(double number) {
+		number=Math.round(number*100.00);
+		number=number/100.00;
+		return number;
+				
 	}
 	
 

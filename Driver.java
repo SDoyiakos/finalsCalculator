@@ -19,9 +19,14 @@ public class Driver {
 	public void displayMenu() {
 	
 		while(state!=0) {
+			
 			System.out.println("[1] Calculate Final Grade");
 			System.out.println("[2] Quit");
+			try {
 			userInput= Integer.valueOf(input.nextLine());
+			if(userInput!=1&&userInput!=2) {
+				throw new NumberFormatException();
+			}
 			
 			switch(userInput) {
 			case 1:
@@ -33,16 +38,30 @@ public class Driver {
 				break;
 			}
 		}
+			catch(NumberFormatException e) {
+				System.out.println("Please enter a number 1 or 2");
+			}
+			catch(Exception e) {
+				e.printStackTrace();
+				System.out.println("An error occured please try again");
+				
+			}
+		
+		}
 	}
 			
+		
 
 	
 	
 	public void calculatorPrompt() {
-
+		
+		try {
 		double grade;
 		double desiredGrade;
 		double finalWeight;
+		
+		//prompt user for inputs
 		System.out.println("What is your current grade in %?");
 		grade=Double.valueOf(input.nextLine());
 		System.out.println("What is your desired grade in %?");
@@ -51,6 +70,18 @@ public class Driver {
 		finalWeight=Double.valueOf(input.nextLine());
 		System.out.println("You need a " + Calculator.calculateFinal(grade, finalWeight, desiredGrade)+"% to get a "+ desiredGrade + "% in the class\n");
 		
+		
+		
+		}
+		// simple catch all exception
+		
+		catch(NumberFormatException e) {
+			System.out.println("Please input a number");
+		}
+		catch(Exception e) {
+			System.out.println("An error has occured. Please try again.");
+			e.printStackTrace();
+		}
 		
 
 	}
